@@ -175,7 +175,8 @@ const clock = new THREE.Clock();
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
-  
+  points.rotation.y = elapsedTime * (Math.PI * 0.02);
+  points.rotation.x = elapsedTime * (Math.PI * 0.01);
 
   // Update controls
   controls.update();
