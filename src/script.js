@@ -7,6 +7,7 @@ import GUI from "lil-gui";
  */
 // Debug
 const gui = new GUI();
+gui.open(false);
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -18,10 +19,10 @@ const scene = new THREE.Scene();
  * Galaxy
  */
 const parameters = {};
-parameters.count = 100000;
+parameters.count = 200000;
 parameters.size = 0.01;
 parameters.radius = 5;
-parameters.branches = 3;
+parameters.branches = 5;
 parameters.spin = 1;
 parameters.randomness = 0.2;
 parameters.randomnessPower = 3;
@@ -110,6 +111,7 @@ const generateGalaxy = () => {
   scene.add(points);
 };
 
+gui.add(document, "title");
 gui.add(parameters, "count").min(100).max(1000000).step(100).onFinishChange(generateGalaxy);
 gui.add(parameters, "size").min(0.001).max(0.1).step(0.001).onFinishChange(generateGalaxy);
 gui.add(parameters, "radius").min(0.01).max(20).step(0.01).onFinishChange(generateGalaxy);
