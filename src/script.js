@@ -32,13 +32,14 @@ parameters.outsideColor = "#1b3984";
 let geometry = null;
 let material = null;
 let points = null;
+let points2 = null;
 
 const generateGalaxy = () => {
   // Destroy old galaxy
-  if (points !== null) {
+  if (points || points2 !== null) {
     geometry.dispose();
     material.dispose();
-    scene.remove(points);
+    scene.remove(points, points2);
   }
 
   /**
@@ -108,7 +109,8 @@ const generateGalaxy = () => {
    * Points
    */
   points = new THREE.Points(geometry, material);
-  scene.add(points);
+  points2 = new THREE.Points(geometry, material);
+  scene.add(points, points2);
 };
 
 gui.add(document, "title");
@@ -152,7 +154,7 @@ window.addEventListener("resize", () => {
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
 camera.position.x = 3;
-camera.position.y = 3;
+camera.position.y = 4;
 camera.position.z = 3;
 scene.add(camera);
 
@@ -179,6 +181,8 @@ const tick = () => {
 
   points.rotation.y = elapsedTime * (Math.PI * 0.02);
   points.rotation.x = elapsedTime * (Math.PI * 0.01);
+
+    points2.rotation.y = elapsedTime * 0.1
 
   // Update controls
   controls.update();
