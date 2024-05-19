@@ -26,8 +26,8 @@ parameters.branches = 5;
 parameters.spin = 1;
 parameters.randomness = 0.2;
 parameters.randomnessPower = 3;
-parameters.insideColor = "#ff6030";
-parameters.outsideColor = "#1b3984";
+parameters.insideColor = "#5a22f7";
+parameters.outsideColor = "#0000ff";
 
 let geometry = null;
 let material = null;
@@ -110,6 +110,7 @@ const generateGalaxy = () => {
    */
   points = new THREE.Points(geometry, material);
   points2 = new THREE.Points(geometry, material);
+
   scene.add(points, points2);
 };
 
@@ -179,10 +180,10 @@ const clock = new THREE.Clock();
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
-  points.rotation.y = elapsedTime * (Math.PI * 0.02);
-  points.rotation.x = elapsedTime * (Math.PI * 0.01);
-
-    points2.rotation.y = elapsedTime * 0.1
+  points.rotation.y = elapsedTime * (Math.PI * 0.04);
+  points.rotation.x = elapsedTime * (Math.PI * 0.02);
+  points2.rotation.y = elapsedTime * (Math.PI * 0.04);
+  points2.rotation.x = -elapsedTime * (Math.PI * 0.02);
 
   // Update controls
   controls.update();
