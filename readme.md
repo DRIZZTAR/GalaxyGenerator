@@ -31,7 +31,7 @@ Contributions are welcome! If you'd like to help improve the Galaxy Generator, p
 ## License 📜
 ---------
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+Free for all! Credit is always appreciated if used.
 
 ## Acknowledgments 🙏
 --------------------
